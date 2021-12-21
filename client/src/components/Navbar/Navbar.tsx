@@ -1,16 +1,23 @@
 import styles from "./Navbar.module.scss";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
+import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className={styles.nav}>
-          <Logo />
-      <ul className={styles.navList}>
-        {/* <li> */}
-        {/* </li> */}
+      <Logo />
+      <HamburgerButton setIsOpen={setIsOpen} isOpen={isOpen} />
+      <ul
+        className={
+          isOpen ? `${styles.navListOpen} ${styles.navList}` : styles.navList
+        }
+      >
         <li className={styles.navItem}>
-          <NavLink className={styles.navLink} to="/categories">
+          <NavLink className={styles.navLink} to="/categories" >
             Categories
           </NavLink>
         </li>

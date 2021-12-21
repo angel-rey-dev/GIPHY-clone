@@ -4,9 +4,7 @@
 .container{
     // @include bdr;
     background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexbox($d:row nowrap);
     gap: .5rem;
 }
 .image{
