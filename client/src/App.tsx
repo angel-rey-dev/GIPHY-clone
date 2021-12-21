@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Entertainment from "./routes/Entertainment/Entertainment";
+
+// Routes
+import Home from "./routes/Home/Home";
+import PageNotFound from "./routes/PageNotFound/PageNotFound";
+import Reactions from "./routes/Reactions/Reactions";
+import Sports from "./routes/Sports/Sports";
+import Stickers from "./routes/Stickers/Stickers";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/entertainment" element={<Entertainment />} />
+        <Route path="/reactions" element={<Reactions />} />
+        <Route path="/sports" element={<Sports />} />
+        <Route path="/stickers" element={<Stickers />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </div>
   );
 }
