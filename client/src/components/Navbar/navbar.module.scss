@@ -1,0 +1,68 @@
+@use "../../scss/abstracts"as *;
+
+.nav {
+    // @include bdr($c:magenta);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+    width: 100%;
+
+    @media screen and(min-width:$medium-screens) {
+        justify-content: center;
+        gap: 3%;
+    }
+
+    &List {
+        // @include bdr($c:magenta);
+        background: linear-gradient(to right, rgb(233, 86, 86), rgb(255, 51, 51) 31%, rgb(224, 203, 12) 52%, rgb(204, 218, 19) 77%, rgb(255, 196, 0), rgb(255, 208, 0)) 0% 50% / 200% 50%;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: $largue-screens;
+    }
+
+    &Item {
+        border-right: 8px solid $bg-color;
+        position: relative;
+        transition: all .5s;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: rgb(18, 18, 18);
+            opacity: 1;
+            inset: 0px -1px 4px;
+            -ms-inset: 0px -1px 4px;
+            z-index: 1;
+            transition: opacity 0.35s ease 0s;
+        }
+
+        &:hover {
+            &::before {
+                opacity: 0.2;
+            }
+        }
+
+        &:last-child {
+            display: none;
+        }
+
+        @media screen and (min-width: $largue-screens) {
+            &:last-child {
+                display: block;
+            }
+        }
+    }
+
+
+    &Link {
+        font-weight: $medium-font-weight;
+        display: block;
+        padding: 1rem 1.5rem;
+        position: relative;
+        z-index: 5;
+    }
+
+}

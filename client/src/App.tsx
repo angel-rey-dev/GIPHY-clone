@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import Categories from "./routes/Categories/Categories";
 import Entertainment from "./routes/Entertainment/Entertainment";
 
 // Routes
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="/entertainment" element={<Entertainment />} />
         <Route path="/reactions" element={<Reactions />} />
         <Route path="/sports" element={<Sports />} />

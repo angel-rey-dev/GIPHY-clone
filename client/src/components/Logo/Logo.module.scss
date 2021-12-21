@@ -1,0 +1,18 @@
+@use "../../scss/abstracts" as *;
+
+
+.container{
+    // @include bdr;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+.image{
+    width: 4rem;
+}
+.title{
+    font-size: 4rem;
+    font-weight: $black-font-weight;
+}

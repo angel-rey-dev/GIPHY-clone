@@ -1,23 +1,43 @@
+import styles from "./Navbar.module.scss";
 import { NavLink } from "react-router-dom";
+import Logo from "../Logo/Logo";
 
 export default function Navbar() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
+    <nav className={styles.nav}>
+          <Logo />
+      <ul className={styles.navList}>
+        {/* <li> */}
+        {/* </li> */}
+        <li className={styles.navItem}>
+          <NavLink className={styles.navLink} to="/categories">
+            Categories
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/reactions">Reactions</NavLink>
+        <li className={styles.navItem}>
+          <NavLink className={styles.navLink} to="/stickers">
+            Stickers
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/entertainment">Entertainment</NavLink>
+        <li className={styles.navItem}>
+          <NavLink className={styles.navLink} to="/reactions">
+            Reactions
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/sports">Sports</NavLink>
+        <li className={styles.navItem}>
+          <NavLink className={styles.navLink} to="/entertainment">
+            Entertainment
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/stickers">Stickers</NavLink>
+        <li className={styles.navItem}>
+          <NavLink className={styles.navLink} to="/gaming">
+            Gaming
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink className={styles.navLink} to="/sports">
+            Sports
+          </NavLink>
         </li>
       </ul>
     </nav>
