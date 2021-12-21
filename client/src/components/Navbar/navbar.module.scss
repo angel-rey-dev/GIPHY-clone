@@ -7,7 +7,7 @@
     width: 100%;
 
     @include for-medium-screens {
-        max-width: calc($large-screen - 10rem);
+        max-width: $large-screen;
         padding: 2rem 0 1rem;
         margin: 0 auto;
         gap: 3%;
@@ -83,7 +83,7 @@
             }
         }
 
-        @include for-large-screens {
+        @media screen and (min-width:900px) {
             &:last-child {
                 display: block;
             }
@@ -107,8 +107,9 @@
             position: relative;
             z-index: 5;
         }
+
         @include for-large-screens {
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
         }
     }
 
