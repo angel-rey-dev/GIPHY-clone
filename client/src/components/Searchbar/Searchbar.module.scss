@@ -1,17 +1,24 @@
 @use "../../scss/abstracts"as *;
 
 .container {
+    background-color: $bg-color;
     display: flex;
     justify-content: center;
-    padding: 5px;
+    padding: 10px 5px;
     width: 100%;
+
+    &Sticky {
+        position: fixed;
+        top: 0;
+        transition: all .5s;
+    }
 }
 
 .form {
     @include flexbox($d:row nowrap);
     display: flex;
     justify-content: center;
-    max-width: $large-screen;
+    max-width: calc($large-screen - 10rem);
     width: 100%;
 
     &Btn {
@@ -22,7 +29,8 @@
         color: $white;
         height: 100%;
         padding: 1rem 2rem;
-        svg{
+
+        svg {
             font-size: 2rem;
             transform: rotateZ(90deg);
         }
@@ -35,9 +43,10 @@
     padding: 1.5rem 1rem 1.5rem 2rem;
     width: 100%;
 
-    &::placeholder{
+    &::placeholder {
         color: $lightgray;
     }
+
     &Container {
         display: flex;
         width: 100%;

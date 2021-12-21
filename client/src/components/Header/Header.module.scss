@@ -1,0 +1,13 @@
+@use "../../scss/abstracts"as *;
+
+.container {
+    background-color: $bg-color;
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    @include for-large-screens {
+        position: static;
+        top: unset;
+    }
+}

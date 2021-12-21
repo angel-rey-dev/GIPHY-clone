@@ -1,9 +1,22 @@
 import styles from "./Searchbar.module.scss";
-import { BsSearch } from "react-icons/bs";
+import { FaSearch } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 export default function Searchbar() {
+  const [scrollPosition, setScrollPosition] = useState(window.scrollY);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScrollPosition(window.scrollY);
+    });
+  }, []);
   return (
-    <div className={styles.container}>
+    <div
+      className={
+        scrollPosition > 70
+          ? `${styles.container} ${styles.containerSticky}`
+          : styles.container
+      }
+    >
       <form className={styles.form}>
         <div className={styles.inputContainer}>
           <label htmlFor="search" className={styles.inputLabel}>
@@ -19,7 +32,7 @@ export default function Searchbar() {
           />
         </div>
         <button type="submit" title="Search" className={styles.formBtn}>
-          <BsSearch />
+          <FaSearch />
         </button>
       </form>
     </div>

@@ -2,13 +2,14 @@
 
 .nav {
     // @include bdr($c:magenta);
-    border-bottom: 1px solid red;
     @include flexbox($d:row nowrap, $j:space-between);
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 1rem;
     width: 100%;
 
     @include for-medium-screens {
-        justify-content: center;
+        max-width: calc($large-screen - 10rem);
+        padding: 2rem 0 1rem;
+        margin: 0 auto;
         gap: 3%;
     }
 
@@ -36,6 +37,8 @@
             background: $main-gradient;
             background-size: 250% 250%;
             flex-flow: row nowrap;
+            gap: 0;
+            justify-content: space-between;
             gap: unset;
             position: static;
             top: unset;
@@ -103,6 +106,9 @@
         @include for-medium-screens {
             position: relative;
             z-index: 5;
+        }
+        @include for-large-screens {
+            padding: 1rem 2rem;
         }
     }
 
