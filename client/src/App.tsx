@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
 import Categories from "./routes/Categories/Categories";
 import Entertainment from "./routes/Entertainment/Entertainment";
 
@@ -13,7 +13,7 @@ import Stickers from "./routes/Stickers/Stickers";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />

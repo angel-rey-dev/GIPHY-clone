@@ -7,7 +7,7 @@
     padding: 2rem 1rem;
     width: 100%;
 
-    @media screen and(min-width:$medium-screens) {
+    @include for-medium-screens {
         justify-content: center;
         gap: 3%;
     }
@@ -24,11 +24,12 @@
         list-style-type: none;
         position: fixed;
         top: 9rem;
-        left: 0;
-        transition: transform 0.5s ease-in;
-        transform: translateY(100%);
-        width: 100%;
+        right: 0;
+        transition: transform 0.4s;
+        transform: translateX(100%);
+        width: 50%;
         height: 90%;
+        z-index: 10000;
 
         @include for-medium-screens {
             animation-duration: 4s;
@@ -38,10 +39,10 @@
             gap: unset;
             position: static;
             top: unset;
-            left: unset;
+            right: unset;
             transform: none;
             width: unset;
-            max-width: $largue-screens;
+            max-width: $large-screen;
         }
 
         &Open {

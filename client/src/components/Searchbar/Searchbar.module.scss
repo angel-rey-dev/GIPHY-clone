@@ -1,0 +1,54 @@
+@use "../../scss/abstracts"as *;
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    width: 100%;
+}
+
+.form {
+    @include flexbox($d:row nowrap);
+    display: flex;
+    justify-content: center;
+    max-width: $large-screen;
+    width: 100%;
+
+    &Btn {
+        animation: moveGradient 5s alternate infinite;
+        background: $second-gradient;
+        background-size: 400%;
+        background-position: 0 50%;
+        color: $white;
+        height: 100%;
+        padding: 1rem 2rem;
+        svg{
+            font-size: 2rem;
+            transform: rotateZ(90deg);
+        }
+    }
+}
+
+.input {
+    border: none;
+    outline: none;
+    padding: 1.5rem 1rem 1.5rem 2rem;
+    width: 100%;
+
+    &::placeholder{
+        color: $lightgray;
+    }
+    &Container {
+        display: flex;
+        width: 100%;
+    }
+
+    &Label {
+        position: absolute;
+        top: -10000rem;
+        left: -1000000rem;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+    }
+}
