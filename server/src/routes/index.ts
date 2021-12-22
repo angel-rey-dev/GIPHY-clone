@@ -3,6 +3,6 @@ import { getTrendingGifs } from "../controllers/index.controllers";
 
 const router = Router();
 
-router.get("/trending", getTrendingGifs);
+router.use("/trending", getTrendingGifs);
 
 export default router;
