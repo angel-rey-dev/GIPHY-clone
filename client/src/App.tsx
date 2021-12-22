@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
+import GoTopButton from "./components/GoTopButton/GoTopButton";
 import Header from "./components/Header/Header";
 import Categories from "./routes/Categories/Categories";
 import Entertainment from "./routes/Entertainment/Entertainment";
@@ -14,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <GoTopButton />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
@@ -23,6 +26,7 @@ function App() {
         <Route path="/stickers" element={<Stickers />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

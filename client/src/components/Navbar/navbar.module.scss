@@ -1,9 +1,8 @@
 @use "../../scss/abstracts"as *;
 
 .nav {
-    // @include bdr($c:magenta);
     @include flexbox($d:row nowrap, $j:space-between);
-    padding: 2rem 1rem 1rem;
+    padding: 2rem 1rem 0;
     width: 100%;
 
     @include for-medium-screens {
@@ -15,7 +14,6 @@
 
 
     &List {
-        // @include bdr($c:magenta);
         @include flexbox();
         animation: moveGradient 3s alternate infinite;
         gap: 2rem;

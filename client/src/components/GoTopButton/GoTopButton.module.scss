@@ -1,0 +1,39 @@
+@use "../../scss/abstracts"as *;
+
+.btn {
+    @include flexbox;
+    animation: moveGradient 5s alternate infinite;
+    background: $second-gradient;
+    background-size: 400%;
+    background-position: 0 50%;
+    border: 1px solid $primary-orange;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 5rem;
+    width: 5rem;
+    opacity: 0;
+    position: fixed;
+    bottom: 7rem;
+    right: 3rem;
+    transform: translateY(8rem);
+    transition: all .5s;
+
+    &Visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &:hover {
+        border-color: $primary-red;
+        transform: scale(1.1);
+    }
+    &:active {
+        border-color:  $primary-yellow;
+        transform: scale(1);
+    }
+
+    svg {
+        color: #fff;
+        font-size: 2.5rem;
+    }
+}

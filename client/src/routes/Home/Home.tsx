@@ -1,5 +1,6 @@
 import styles from "./Home.module.scss";
 import { useEffect, useState } from "react";
+import Banner from "../../components/Banner/Banner";
 
 export default function Home() {
   const [gifs, setGifs] = useState([]);
@@ -15,6 +16,7 @@ export default function Home() {
 
   return (
     <main className={styles.container}>
+      <Banner />
       {gifs.map((gif) => (
         <img src={gif["images"]["downsized_medium"]["url"]} alt="gif" />
       ))}
