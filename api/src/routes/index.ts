@@ -1,8 +1,15 @@
 import { Router } from "express";
-import { getTrendingGifs } from "../controllers/index.controllers";
+require("dotenv").config();
+
+// Controllers
+import random from "../controllers/random.controller";
+import stickers from "../controllers/stickers.controller";
+import trending from "../controllers/trending.controller";
+
 
 const router = Router();
-
-router.use("/trending", getTrendingGifs);
+router.use("/api/random", random);
+router.use("/api/stickers", stickers);
+router.use("/api/trending", trending);
 
 export default router;
