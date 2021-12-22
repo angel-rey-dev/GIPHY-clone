@@ -3,6 +3,7 @@ require("dotenv").config();
 
 // Controllers
 import categories from "../controllers/categories.controllers";
+import detail from "../controllers/detail.controller";
 import random from "../controllers/random.controller";
 import suggestions from "../controllers/suggestions.controller";
 import search from "../controllers/search.controller";
@@ -12,6 +13,7 @@ import trending from "../controllers/trending.controller";
 
 const router = Router();
 router.use("/api/categories", categories);
+router.use("/api/detail", detail);
 router.use("/api/related", suggestions);
 router.use("/api/random", random);
 router.use("/api/search", search);

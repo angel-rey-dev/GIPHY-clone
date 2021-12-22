@@ -24,13 +24,13 @@
         background-position: 0 50%;
         list-style-type: none;
         position: fixed;
-        top: 9rem;
+        top: 0;
         right: 0;
         transition: transform 0.4s;
         transform: translateX(100%);
         width: 50%;
-        height: 90%;
-        z-index: 10000;
+        height: 100%;
+        z-index: 100;
 
         @include for-medium-screens {
             animation-duration: 4s;
@@ -44,6 +44,7 @@
             top: unset;
             right: unset;
             transform: none;
+            height: unset;
             width: unset;
             max-width: $large-screen;
         }
@@ -80,6 +81,11 @@
 
             &:last-child {
                 display: none;
+            }
+            &Btn{
+                @include for-medium-screens {
+                    display: none;
+                }
             }
         }
 

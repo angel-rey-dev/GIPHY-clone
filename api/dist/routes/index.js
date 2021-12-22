@@ -5,6 +5,7 @@ const express_1 = require("express");
 require("dotenv").config();
 // Controllers
 const categories_controllers_1 = (0, tslib_1.__importDefault)(require("../controllers/categories.controllers"));
+const detail_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/detail.controller"));
 const random_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/random.controller"));
 const suggestions_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/suggestions.controller"));
 const search_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/search.controller"));
@@ -13,6 +14,7 @@ const translate_controller_1 = (0, tslib_1.__importDefault)(require("../controll
 const trending_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/trending.controller"));
 const router = (0, express_1.Router)();
 router.use("/api/categories", categories_controllers_1.default);
+router.use("/api/detail", detail_controller_1.default);
 router.use("/api/related", suggestions_controller_1.default);
 router.use("/api/random", random_controller_1.default);
 router.use("/api/search", search_controller_1.default);

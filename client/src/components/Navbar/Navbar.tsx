@@ -16,8 +16,11 @@ export default function Navbar() {
           isOpen ? `${styles.navListOpen} ${styles.navList}` : styles.navList
         }
       >
+        <li className={`${styles.navItem} ${styles.navItemBtn}`}>
+          <HamburgerButton setIsOpen={setIsOpen} isOpen={isOpen} />
+        </li>
         <li className={styles.navItem}>
-          <NavLink className={styles.navLink} to="/categories" >
+          <NavLink className={styles.navLink} to="/categories">
             Categories
           </NavLink>
         </li>
