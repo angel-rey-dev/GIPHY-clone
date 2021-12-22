@@ -6,12 +6,14 @@ require("dotenv").config();
 // Controllers
 const categories_controllers_1 = (0, tslib_1.__importDefault)(require("../controllers/categories.controllers"));
 const random_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/random.controller"));
+const suggestions_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/suggestions.controller"));
 const search_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/search.controller"));
 const stickers_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/stickers.controller"));
 const translate_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/translate.controller"));
 const trending_controller_1 = (0, tslib_1.__importDefault)(require("../controllers/trending.controller"));
 const router = (0, express_1.Router)();
 router.use("/api/categories", categories_controllers_1.default);
+router.use("/api/related", suggestions_controller_1.default);
 router.use("/api/random", random_controller_1.default);
 router.use("/api/search", search_controller_1.default);
 router.use("/api/stickers", stickers_controller_1.default);
