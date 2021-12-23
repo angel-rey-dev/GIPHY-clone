@@ -5,22 +5,34 @@ import axios from "axios";
 const random = Router();
 
 random.get("/", async (req: Request, res: Response): Promise<Response> => {
-  const url =  `https://api.giphy.com/v1/gifs/random?api_key=${process.env.API_KEY}&tag=${"rocket"}`;
+  const { type, tag } = req.query;
+  const url = `https://api.giphy.com/v1/${type}/random`;
 
   try {
-    const response = await axios.get(url);
-    const { data } = await response.data;
-    const gifData = {
-      id: data.id,
-      title: data.title,
-      rating: data.rating,
-      images: {
-        large: data.images.downsized_large.url,
-        medium: data.images.fixed_height.url,
+    const response = await axios.get(url, {
+      params: {
+        tag: tag || "funny",
+        api_key: process.env.API_KEY,
       },
-      user: { ...data.user },
+    });
+
+    const { data } = await response.data;
+
+    const { id, title, type, rating, images, user } = data;
+
+    const info = {
+      type,
+      id,
+      title,
+      rating,
+      images: {
+        large: images.downsized_large.url,
+        medium: images.fixed_height.url,
+      },
+      user: { ...user },
     };
-    return res.status(200).json(gifData);
+
+    return res.status(200).json(info);
   } catch (error: unknown) {
     return res.status(500).json(error);
   }

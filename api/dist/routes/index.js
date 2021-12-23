@@ -15,7 +15,7 @@ const trending_controller_1 = (0, tslib_1.__importDefault)(require("../controlle
 const router = (0, express_1.Router)();
 router.use("/api/categories", categories_controllers_1.default);
 router.use("/api/detail", detail_controller_1.default);
-router.use("/api/related", suggestions_controller_1.default);
+router.use("/api/suggestions", suggestions_controller_1.default);
 router.use("/api/random", random_controller_1.default);
 router.use("/api/search", search_controller_1.default);
 router.use("/api/stickers", stickers_controller_1.default);

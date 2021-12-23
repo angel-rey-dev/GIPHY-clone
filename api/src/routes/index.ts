@@ -14,7 +14,7 @@ import trending from "../controllers/trending.controller";
 const router = Router();
 router.use("/api/categories", categories);
 router.use("/api/detail", detail);
-router.use("/api/related", suggestions);
+router.use("/api/suggestions", suggestions);
 router.use("/api/random", random);
 router.use("/api/search", search);
 router.use("/api/stickers", stickers);

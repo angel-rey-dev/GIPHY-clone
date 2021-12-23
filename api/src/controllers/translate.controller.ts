@@ -5,23 +5,34 @@ import axios from "axios";
 const translate = Router();
 
 translate.get("/", async (req: Request, res: Response): Promise<Response> => {
-  const url = `https://api.giphy.com/v1/gifs/translate?api_key=${process.env.API_KEY}&s=${"magic+world+green"}`
+  const { type, s } = req.query;
+  const url = `https://api.giphy.com/v1/${type}/translate`;
 
   try {
-    const response = await axios.get(url);
-    const {data} = await response.data;
-    const gifData = {
-      id: data.id,
-      title: data.title,
-      rating: data.rating,
-      images: {
-        large: data.images.downsized_large.url,
-        medium: data.images.fixed_height.url,
+    const response = await axios.get(url, {
+      params: {
+        api_key: process.env.API_KEY,
+        s: s || "unknown",
       },
-      user: { ...data.user },
+    });
+
+    const { data } = await response.data;
+
+    const { id, title, type, rating, images, user } = data;
+
+    const info = {
+      type,
+      id,
+      title,
+      rating,
+      images: {
+        large: images.downsized_large.url,
+        medium: images.fixed_height.url,
+      },
+      user: { ...user },
     };
-    
-    return res.status(200).json(gifData);
+
+    return res.status(200).json(info);
   } catch (error: unknown) {
     console.log(error);
     return res.status(500).json(error);

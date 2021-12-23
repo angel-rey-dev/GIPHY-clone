@@ -5,24 +5,34 @@ const express_1 = require("express");
 const axios_1 = (0, tslib_1.__importDefault)(require("axios"));
 const search = (0, express_1.Router)();
 search.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, function* () {
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${"rocket"}`;
+    const { limit, type, offset, q } = req.query;
+    const url = `https://api.giphy.com/v1/${type}/search`;
     try {
-        const response = yield axios_1.default.get(url);
+        const response = yield axios_1.default.get(url, {
+            params: {
+                api_key: process.env.API_KEY,
+                q: q || "unknown",
+                limit: limit || 25,
+                offset: offset || 0,
+            },
+        });
         const data = yield response.data;
-        const gifData = data.data.map((gif) => {
+        const info = data.data.map((gif) => {
+            const { id, title, type, rating, images, user } = gif;
             return {
-                id: gif.id,
-                title: gif.title,
-                rating: gif.rating,
+                type,
+                id,
+                title,
+                rating,
                 images: {
-                    large: gif.images.downsized_large.url,
-                    medium: gif.images.fixed_height.url,
+                    large: images.downsized_large.url,
+                    medium: images.fixed_height.url,
                 },
-                user: Object.assign({}, gif.user),
+                user: Object.assign({}, user),
             };
         });
         const responseData = {
-            gifs: gifData,
+            info: info,
             pagination: data.pagination,
         };
         return res.status(200).json(responseData);
