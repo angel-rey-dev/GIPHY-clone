@@ -80,7 +80,8 @@
             &:last-child {
                 display: none;
             }
-            &Btn{
+
+            &Btn {
                 @include for-medium-screens {
                     display: none;
                 }
