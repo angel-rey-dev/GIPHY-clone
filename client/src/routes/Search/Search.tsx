@@ -4,6 +4,7 @@ import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { search } from "../../redux/actions/search";
 import MainTitle from "../../components/MainTitle/MainTitle";
+import Grid from "../../components/Grid/Grid";
 
 export default function Search() {
   const { term }: Params = useParams();
@@ -26,6 +27,7 @@ export default function Search() {
   return (
     <main className={styles.container}>
       <MainTitle title={term as string} />
+      <Grid items={searchResults.results} />
     </main>
   );
 }
