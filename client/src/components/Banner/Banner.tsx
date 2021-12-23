@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styles from "./Banner.module.scss";
-// import banner from "../../assets/giphy/banner.gif";
 
 export default function Banner() {
   return (
