@@ -1,4 +1,4 @@
-import { SEARCH } from "../types/index";
+import { SEARCH, RESET_STATE } from "../types/index";
 import { IAction } from "../interfaces";
 
 const initialState = {
@@ -16,6 +16,8 @@ export default function searchReducer(state = initialState, action: IAction) {
         results: payload.results,
         pagination: payload.pagination,
       };
+    case RESET_STATE:
+      return initialState;
     default:
       return state;
   }

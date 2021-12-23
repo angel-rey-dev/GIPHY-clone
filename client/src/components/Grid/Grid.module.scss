@@ -1,20 +1,27 @@
-@use "../../scss/abstracts/" as *;
-@use "../../scss/layout/container" as *;
+@use "../../scss/abstracts/"as *;
+@use "../../scss/layout/container"as *;
 
-.grid{
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    // grid-template-rows: masonry;
-    // grid-gap: 1px;
+.grid {
+    // border: 1px solid red;
     columns: 5 30rem;
     column-gap: 1px;
-    text-align: center;
-    border: 1px solid red;
-    
-    div{
+    text-align: center;    
+}
+
+.gridItem {
+    div {
         border: 2px solid $bg-color;
-        img{
-            width: 100%;
+
+    }
+
+    &Image {
+        opacity: 0;
+        transition: all .5s;
+        width: 100%;
+
+        &Loaded {
+            opacity: 1;
         }
     }
+
 }
