@@ -1,0 +1,29 @@
+@use "../../scss/abstracts"as *;
+
+.container {
+    @include horizontal-center;
+    margin: 2rem auto 1rem;
+    max-width: 1024px;
+    width: 100%;
+}
+
+.title {
+    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    font-size: 3rem;
+}
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    @include for-medium-screens {
+        gap: 2rem;
+    }
+
+    @include for-large-screens {
+        gap: 4rem;
+        justify-content: space-between;
+    }
+}

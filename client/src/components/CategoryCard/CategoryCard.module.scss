@@ -1,0 +1,70 @@
+@use "../../scss/abstracts"as *;
+
+.link {
+    display: block;
+    height: 100%;
+    position: relative;
+    transition: all .5s;
+    width: 50%;
+
+    @include for-medium-screens {
+        max-width: 30rem;
+
+        &:hover>div::after {
+            background-color: rgba(255, 0, 0, 0);
+
+        }
+    }
+}
+
+.container {
+    border: 2px solid #151515;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30vw;
+    max-height: 15rem;
+    position: relative;
+    transition: all .5s;
+    width: 100%;
+    z-index: -1;
+
+    &::after {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        content: "";
+        height: 100%;
+        left: 0;
+        transition: all .5s;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+
+    }
+
+
+}
+
+.image {
+    border-radius: 5px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity .5s;
+    width: 100%;
+
+    &Loaded {
+        opacity: 1;
+    }
+}
+
+.title {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    text-align: center;
+    text-shadow: -1px 1px 1px black;
+    width: 100%;
+    z-index: 10;
+}

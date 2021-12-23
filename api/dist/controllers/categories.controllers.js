@@ -16,11 +16,11 @@ categories.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0,
                 name,
                 gif: {
                     large: gif.images.downsized_large.url,
-                    medium: gif.images.fixed_height.url,
+                    medium: gif.images.fixed_width.url,
                 },
             };
         });
-        return res.status(200).json({ categories: categoriesData });
+        return res.status(200).json(categoriesData);
     }
     catch (error) {
         return res.status(500).json(error);

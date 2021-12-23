@@ -17,7 +17,7 @@ export default function GoTopButton() {
       type="button"
       title="Go to top"
       className={
-        scrollPosition > 800 ? `${styles.btn} ${styles.btnVisible}` : styles.btn
+        scrollPosition > 700 ? `${styles.btn} ${styles.btnVisible}` : styles.btn
       }
       onClick={() => handleClick()}
     >

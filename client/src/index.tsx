@@ -11,8 +11,9 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 
 // Axios for API calls
-import axios from "axios";
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:4000";
+// import axios from "axios";
+// axios.defaults.baseURL = "http://localhost:4000/api";
+// axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:4000";
 
 ReactDOM.render(
   <React.StrictMode>

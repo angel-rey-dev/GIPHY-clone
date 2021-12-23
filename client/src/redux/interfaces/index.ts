@@ -2,8 +2,7 @@ export interface IAction {
   type: string;
   payload?: any;
 }
-export interface IGifsState {
+export interface ITrendingState {
   gifs: [];
-  loading: boolean;
-  error: any;
+  stickers: [];
 }

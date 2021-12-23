@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import gifsReducer from "./gifs";
+import categoriesReducer from "./categories";
+import trendingReducer from "./trending";
 
 const rootReducer = combineReducers({
-  gifs: gifsReducer,
+  categories: categoriesReducer,
+  trending: trendingReducer,
 });
 
 export default rootReducer;
