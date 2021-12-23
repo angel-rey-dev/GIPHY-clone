@@ -9,7 +9,7 @@ import Entertainment from "./routes/Entertainment/Entertainment";
 import Home from "./routes/Home/Home";
 import PageNotFound from "./routes/PageNotFound/PageNotFound";
 import Reactions from "./routes/Reactions/Reactions";
-import Sports from "./routes/Sports/Sports";
+import Search from "./routes/Search/Search";
 import Stickers from "./routes/Stickers/Stickers";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/entertainment" element={<Entertainment />} />
         <Route path="/reactions" element={<Reactions />} />
-        <Route path="/sports" element={<Sports />} />
+        <Route path="/search/:term" element={<Search />} />
         <Route path="/stickers" element={<Stickers />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

@@ -40,13 +40,13 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li className={styles.navItem}>
-          <NavLink className={styles.navLink} to="/gaming">
-            Gaming
+          <NavLink className={styles.navLink} to="/sports">
+            Translate
           </NavLink>
         </li>
         <li className={styles.navItem}>
-          <NavLink className={styles.navLink} to="/sports">
-            Sports
+          <NavLink className={styles.navLink} to="/gaming">
+            Gaming
           </NavLink>
         </li>
       </ul>

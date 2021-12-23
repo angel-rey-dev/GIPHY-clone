@@ -18,6 +18,7 @@
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
     "redux-devtools": "^3.7.0",
+    "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "sass": "^1.45.0",
     "tslib": "^2.3.1",

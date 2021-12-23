@@ -11,13 +11,13 @@ search.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, fun
         const response = yield axios_1.default.get(url, {
             params: {
                 api_key: process.env.API_KEY,
-                q: q || "unknown",
-                limit: limit || 25,
+                q: q || "holidays",
+                limit: limit || 20,
                 offset: offset || 0,
             },
         });
         const data = yield response.data;
-        const info = data.data.map((gif) => {
+        const results = data.data.map((gif) => {
             const { id, title, type, rating, images, user } = gif;
             return {
                 type,
@@ -26,13 +26,13 @@ search.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, fun
                 rating,
                 images: {
                     large: images.downsized_large.url,
-                    medium: images.fixed_height.url,
+                    medium: images.fixed_width.url,
                 },
                 user: Object.assign({}, user),
             };
         });
         const responseData = {
-            info: info,
+            results,
             pagination: data.pagination,
         };
         return res.status(200).json(responseData);

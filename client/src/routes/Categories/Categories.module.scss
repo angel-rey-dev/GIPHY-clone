@@ -1,17 +1,5 @@
-@use "../../scss/abstracts"as *;
-
-.container {
-    @include horizontal-center;
-    margin: 2rem auto 1rem;
-    max-width: 1024px;
-    width: 100%;
-}
-
-.title {
-    margin-bottom: 2rem;
-    padding: 1rem 2rem;
-    font-size: 3rem;
-}
+@use "../../scss/abstracts/mixins"as *;
+@use "../../scss/layout/container"as *;
 
 .grid {
     display: flex;

@@ -15,7 +15,7 @@ export default function CategoryCard({ id, name, gif }: CategoryCardProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <Link to="/" className={styles.link}>
+    <Link to={`/search/${encodeURI(name)}`} className={styles.link}>
       <div className={styles.container}>
         <img
           src={gif.medium}

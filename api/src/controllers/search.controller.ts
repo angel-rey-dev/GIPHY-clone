@@ -12,15 +12,15 @@ search.get("/", async (req: Request, res: Response): Promise<Response> => {
     const response = await axios.get(url, {
       params: {
         api_key: process.env.API_KEY,
-        q: q || "unknown",
-        limit: limit || 25,
+        q: q || "holidays",
+        limit: limit || 20,
         offset: offset || 0,
       },
     });
 
     const data = await response.data;
 
-    const info = data.data.map((gif: any) => {
+    const results = data.data.map((gif: any) => {
       const { id, title, type, rating, images, user } = gif;
       return {
         type,
@@ -29,14 +29,14 @@ search.get("/", async (req: Request, res: Response): Promise<Response> => {
         rating,
         images: {
           large: images.downsized_large.url,
-          medium: images.fixed_height.url,
+          medium: images.fixed_width.url,
         },
         user: { ...user },
       };
     });
 
     const responseData = {
-      info: info,
+      results,
       pagination: data.pagination,
     };
 

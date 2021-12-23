@@ -3,6 +3,7 @@ import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import { getCategories } from "../../redux/actions/categories";
 import { useEffect } from "react";
+import MainTitle from "../../components/MainTitle/MainTitle";
 
 interface ICategory {
   id: string;
@@ -23,7 +24,7 @@ export default function Categories() {
 
   return (
     <main className={styles.container}>
-      <h2 className={styles.title}>Categories</h2>
+      <MainTitle title="Categories" />
 
       <section className={styles.grid}>
         {categories &&
