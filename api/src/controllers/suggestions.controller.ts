@@ -18,7 +18,7 @@ suggestions.get("/:term", async (req: Request, res: Response): Promise<Response>
     const data = await response.data;
     const suggestionsData = data.data.map((suggestion: any) => suggestion.name);
 
-    return res.status(200).json({ related: suggestionsData });
+    return res.status(200).json({ suggestions: suggestionsData });
   } catch (error: unknown) {
     return res.status(500).json(error);
   }

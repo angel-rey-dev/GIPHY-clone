@@ -1,0 +1,37 @@
+@use "../../scss/abstracts"as *;
+
+.container {
+
+    @include bdr;
+    @include flexbox($d:row nowrap,$j:flex-start);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    overflow: auto;
+    text-align: left;
+}
+
+.tag {
+    // @include bdr;
+    background-color: lighten($bg-color, 10%);
+    border-radius: 3rem;
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    padding: 1rem 2rem;
+    transition: all .5s;
+    white-space: nowrap;
+    font: {
+        weight: $medium-font-weight;
+        size: 1.4rem;
+    }
+
+    &:hover {
+        background-color: lighten($bg-color, 15%);
+        color: $primary-yellow;
+    }
+
+    &:active {
+        background-color: lighten($bg-color, 10%);
+        color: $primary-orange;
+    }
+}

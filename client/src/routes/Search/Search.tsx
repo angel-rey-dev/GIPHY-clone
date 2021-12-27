@@ -5,13 +5,16 @@ import { useEffect, useState } from "react";
 import { resetState, search } from "../../redux/actions/search";
 import MainTitle from "../../components/MainTitle/MainTitle";
 import Grid from "../../components/Grid/Grid";
+import SearchSuggestions from "../../components/SearchSuggestions/SearchSuggestions";
 
 export default function Search() {
   const { term }: Params = useParams();
 
   const searchResults = useSelector((state: RootStateOrAny) => state.search);
-console.log(searchResults);
+  // console.log(searchResults);
   const dispatch = useDispatch();
+
+  console.log("searchResults", searchResults);
 
   const [searchParams, setSearchParams] = useState({
     term: term as string,
@@ -22,9 +25,8 @@ console.log(searchResults);
 
   useEffect(() => {
     dispatch(search({ ...searchParams }));
-  }, [dispatch, searchParams]);
+  }, [dispatch, term, searchParams]);
 
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -33,13 +35,13 @@ console.log(searchResults);
     return () => {
       dispatch(resetState());
     };
-  }, [dispatch]);
+  }, [dispatch, term]);
 
   return (
     <main className={styles.container}>
       <MainTitle title={term as string} />
+      <SearchSuggestions />
       <Grid
-        // key={searchParams.term}
         items={searchResults.results}
         pagination={searchResults.pagination}
         setSearchParams={setSearchParams}
