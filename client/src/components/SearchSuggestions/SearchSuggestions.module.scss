@@ -1,13 +1,18 @@
 @use "../../scss/abstracts"as *;
 
 .container {
-
-    @include bdr;
+    // @include bdr;
     @include flexbox($d:row nowrap,$j:flex-start);
     gap: 1.5rem;
     margin-bottom: 2rem;
+    padding: 0 1rem 2rem;
     overflow: auto;
     text-align: left;
+
+    @include for-medium-screens{
+        flex-flow: row wrap;
+        justify-content: center;
+    }
 }
 
 .tag {

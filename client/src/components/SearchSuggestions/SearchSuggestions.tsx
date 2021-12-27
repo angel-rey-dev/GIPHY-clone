@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { Link, Params, useParams } from "react-router-dom";
+import { Link, Params, useNavigate, useParams } from "react-router-dom";
 import { resetState, searchSuggestions } from "../../redux/actions/search";
 import styles from "./SearchSuggestions.module.scss";
 
 export default function SearchSuggestions() {
+  const navigate = useNavigate();
   const { term }: Params = useParams();
 
   const { suggestions }: { suggestions: string[] } = useSelector(
@@ -12,8 +13,8 @@ export default function SearchSuggestions() {
   );
 
   const dispatch = useDispatch();
-
   useEffect(() => {
+    dispatch(resetState());
     dispatch(searchSuggestions({ term: term as string }));
   }, [dispatch, term]);
 
@@ -29,13 +30,14 @@ export default function SearchSuggestions() {
     <section className={styles.container}>
       {suggestions &&
         suggestions.map((tag, index) => (
-          <Link
-            to={`/search/${encodeURI(tag)}`}
+          <button
+            // to={`/search/${encodeURI(tag)}`}
+            onClick={() => navigate(`/search/${encodeURI(tag)}`)}
             key={index}
             className={styles.tag}
           >
             #{tag}
-          </Link>
+          </button>
         ))}
     </section>
   );

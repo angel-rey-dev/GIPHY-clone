@@ -7,13 +7,28 @@ const initialState = {
   suggestions: [],
 };
 
+type ResultItem = {
+  type: string;
+  id: string;
+  title: string;
+  rating: string;
+  images: {
+    large: string;
+    medium: string;
+  };
+  user: any;
+};
+
 export default function searchReducer(state = initialState, action: IAction) {
   const { type, payload } = action;
   switch (type) {
     case SEARCH:
+      const filteredResults = payload.results?.filter((result: ResultItem) => {
+        return state.results.every((item: ResultItem) => item.id !== result.id);
+      });
       return {
         ...state,
-        results: [...state.results, ...payload.results],
+        results: [...state.results, ...filteredResults],
         pagination: payload.pagination,
       };
     case SEARCH_SUGGESTIONS:

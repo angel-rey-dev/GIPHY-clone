@@ -18,7 +18,7 @@ type GridProps = {
     offset: number;
   };
   setSearchParams: SetStateAction<any>;
-  // term: string;
+  term: string;
 };
 
 export default function Grid({
@@ -26,22 +26,22 @@ export default function Grid({
   pagination,
   searchParams,
   setSearchParams,
+  term,
 }: GridProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   console.log("Grid SearchParams ", searchParams);
+  console.log("Grid term ", term);
 
   return (
     <InfiniteScroll
       dataLength={items.length}
       next={() => {
-        setTimeout(() => {
-          setSearchParams((prevState: any) => ({
-            ...prevState,
-            offset: prevState.offset + prevState.limit,
-          }));
-          console.log("Act: ", searchParams);
-        }, 1000);
+        setSearchParams({
+          ...searchParams,
+          offset: searchParams.offset + searchParams.limit,
+        });
+        console.log("Act: ", searchParams);
       }}
       hasMore={pagination.offset + pagination.count < pagination.total_count}
       loader={<Loader />}
