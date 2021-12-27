@@ -18,6 +18,7 @@ type GridProps = {
     offset: number;
   };
   setSearchParams: SetStateAction<any>;
+  // term: string;
 };
 
 export default function Grid({
@@ -27,6 +28,8 @@ export default function Grid({
   setSearchParams,
 }: GridProps) {
   const [isLoaded, setIsLoaded] = useState(false);
+
+  console.log("Grid SearchParams ", searchParams);
 
   return (
     <InfiniteScroll

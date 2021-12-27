@@ -11,18 +11,18 @@ export default function Search() {
   const { term }: Params = useParams();
 
   const searchResults = useSelector((state: RootStateOrAny) => state.search);
-  // console.log(searchResults);
+  console.log("Search term", term);
   const dispatch = useDispatch();
 
-  console.log("searchResults", searchResults);
-
+  
   const [searchParams, setSearchParams] = useState({
     term: term as string,
     type: "gifs",
     limit: 20,
     offset: 0,
   });
-
+  console.log("Search  SearchParams: ", searchParams);
+  
   useEffect(() => {
     dispatch(search({ ...searchParams }));
   }, [dispatch, term, searchParams]);
@@ -46,6 +46,7 @@ export default function Search() {
         pagination={searchResults.pagination}
         setSearchParams={setSearchParams}
         searchParams={searchParams}
+        key={term as string}
       />
     </main>
   );
