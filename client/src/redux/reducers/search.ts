@@ -13,7 +13,7 @@ export default function searchReducer(state = initialState, action: IAction) {
     case SEARCH:
       return {
         ...state,
-        results: payload.results,
+        results: [...state.results, ...payload.results],
         pagination: payload.pagination,
       };
     case RESET_STATE:

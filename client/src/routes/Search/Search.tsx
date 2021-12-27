@@ -10,7 +10,7 @@ export default function Search() {
   const { term }: Params = useParams();
 
   const searchResults = useSelector((state: RootStateOrAny) => state.search);
-  console.log(searchResults);
+console.log(searchResults);
   const dispatch = useDispatch();
 
   const [searchParams, setSearchParams] = useState({
@@ -21,9 +21,13 @@ export default function Search() {
   });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     dispatch(search({ ...searchParams }));
   }, [dispatch, searchParams]);
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -34,7 +38,13 @@ export default function Search() {
   return (
     <main className={styles.container}>
       <MainTitle title={term as string} />
-      <Grid items={searchResults.results} />
+      <Grid
+        // key={searchParams.term}
+        items={searchResults.results}
+        pagination={searchResults.pagination}
+        setSearchParams={setSearchParams}
+        searchParams={searchParams}
+      />
     </main>
   );
 }
