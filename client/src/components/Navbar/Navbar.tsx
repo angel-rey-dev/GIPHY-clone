@@ -1,10 +1,11 @@
 import styles from "./Navbar.module.scss";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import { useState } from "react";
 
 export default function Navbar() {
+  // const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className={styles.nav}>
@@ -29,29 +30,22 @@ export default function Navbar() {
           </Link>
         </li>
         <li className={styles.navItem}>
-          <Link
-            className={styles.navLink}
-            to={`/search/${encodeURI("reactions")}`}
-          >
+          <Link className={styles.navLink} to="/search/reactions">
             Reactions
           </Link>
         </li>
         <li className={styles.navItem}>
-          <Link
-            className={styles.navLink}
-            to={`/search/${encodeURI("entertainment")}`}
-            // onClick={() => navigate("/search/entertainment")}
-          >
+          <NavLink className={styles.navLink} to="/search/entertainment">
             Entertainment
-          </Link>
+          </NavLink>
         </li>
         <li className={styles.navItem}>
-          <NavLink className={styles.navLink} to="/sports">
+          <NavLink className={styles.navLink} to="/translate">
             Translate
           </NavLink>
         </li>
         <li className={styles.navItem}>
-          <NavLink className={styles.navLink} to="/gaming">
+          <NavLink className={styles.navLink} to="search/gaming">
             Gaming
           </NavLink>
         </li>

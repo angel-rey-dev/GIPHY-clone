@@ -11,6 +11,7 @@ import PageNotFound from "./routes/PageNotFound/PageNotFound";
 import Reactions from "./routes/Reactions/Reactions";
 import Search from "./routes/Search/Search";
 import Stickers from "./routes/Stickers/Stickers";
+import Translate from "./routes/Translate/Translate";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/reactions" element={<Reactions />} />
         <Route path="/search/:term" element={<Search />} />
         <Route path="/stickers" element={<Stickers />} />
+        <Route path="/translate" element={<Translate />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

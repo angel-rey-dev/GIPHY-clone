@@ -28,6 +28,7 @@
         background-size: 400%;
         background-position: 0 50%;
         color: $white;
+        cursor: pointer;
         height: 100%;
         padding: 1rem 2rem;
 
@@ -40,6 +41,8 @@
 
 .input {
     border: none;
+    font-size: 1.6rem;
+    font-weight: $bold-font-weight;
     outline: none;
     padding: 1.5rem 1rem 1.5rem 2rem;
     width: 100%;

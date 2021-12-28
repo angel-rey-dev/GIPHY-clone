@@ -1,0 +1,65 @@
+@use "../../scss/abstracts/"as *;
+@use "../../scss/components/titles"as *;
+@use "../../scss/layout/container"as *;
+
+.description {
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+.container{
+    margin: 7rem auto 10rem;
+}
+
+.gifContainer {
+    // @include bdr;
+    margin: 4rem auto;
+    text-align: center;
+
+    img {
+        max-width: 60rem;
+        width: 100%;
+    }
+}
+
+.translate {
+    // @include bdr;
+    text-align: center;
+}
+
+.inputContainer {
+    // @include bdr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 3rem;
+    max-width: 60rem;
+    width: 100%;
+
+    input {
+        border: none;
+        font-size: 1.6rem;
+        font-weight: $bold-font-weight;
+        outline: none;
+        padding: 1.5rem 1rem 1.5rem 2rem;
+        width: 100%;
+
+        &::placeholder {
+            color: $lightgray;
+        }
+
+    }
+
+    button {
+        animation: moveGradient 5s alternate infinite;
+        background: $second-gradient;
+        background-size: 400%;
+        background-position: 0 50%;
+        color: $white;
+        cursor: pointer;
+        font-size: 1.6rem;
+        font-weight: $bold-font-weight;
+        height: 100%;
+        padding: 1.5rem 2rem;
+    }
+}
