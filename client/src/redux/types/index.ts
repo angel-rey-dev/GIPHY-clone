@@ -11,7 +11,8 @@ export const SEARCH = 'SEARCH';
 export const SEARCH_SUGGESTIONS = 'SEARCH_SUGGESTIONS';
 
 // Trendings
-export const GET_TRENDING = 'GET_TRENDING';
+export const GET_TRENDING_GIFS = 'GET_TRENDING_GIFS';
+export const GET_TRENDING_STICKERS = 'GET_TRENDING_STICKERS';
 
 // Translate
 export const TRANSLATE = 'TRANSLATE';

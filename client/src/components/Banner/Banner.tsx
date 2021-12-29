@@ -4,7 +4,7 @@ import styles from "./Banner.module.scss";
 export default function Banner() {
   return (
     <aside className={styles.container}>
-      <Link to="/">
+      <Link to="/search/holidays">
         <picture>
           <source
             media="(min-width:767px)"
