@@ -30,9 +30,6 @@ export default function Grid({
 }: GridProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  console.log("Grid SearchParams ", searchParams);
-  console.log("Grid term ", term);
-
   return (
     <InfiniteScroll
       dataLength={items.length}

@@ -25,23 +25,23 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li className={styles.navItem}>
-          <Link className={styles.navLink} to="/search/stickers">
+          <NavLink className={styles.navLink} to="/search/random">
+            Random
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink className={styles.navLink} to="/search/stickers">
             Stickers
-          </Link>
-        </li>
-        <li className={styles.navItem}>
-          <Link className={styles.navLink} to="/search/reactions">
-            Reactions
-          </Link>
-        </li>
-        <li className={styles.navItem}>
-          <NavLink className={styles.navLink} to="/search/entertainment">
-            Entertainment
           </NavLink>
         </li>
         <li className={styles.navItem}>
           <NavLink className={styles.navLink} to="/translate">
             Translate
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink className={styles.navLink} to="/search/reactions">
+            Reactions
           </NavLink>
         </li>
         <li className={styles.navItem}>

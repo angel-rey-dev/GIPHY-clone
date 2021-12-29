@@ -36,4 +36,8 @@
         color: #fff;
         font-size: 2.5rem;
     }
+    @media screen and (max-width: 767px) {
+        right: unset;
+        left: 3rem;
+    }
 }

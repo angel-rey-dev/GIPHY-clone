@@ -8,7 +8,6 @@ import Loader from "../../components/Loader/Loader";
 
 export default function Translate() {
   const { item } = useSelector((state: RootStateOrAny) => state.translate);
-  console.log("Translate state", item);
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +25,9 @@ export default function Translate() {
 
     dispatch(translate(input));
     resetInput();
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   };
 
   useEffect(() => {
@@ -34,12 +35,6 @@ export default function Translate() {
       dispatch(resetState());
     };
   }, [dispatch]);
-
-  //   useEffect(() => {
-  //     return () => {
-  //       dispatch(resetState());
-  //     };
-  //   }, [dispatch]);
 
   return (
     <main className={styles.container}>
@@ -64,7 +59,15 @@ export default function Translate() {
 
       <section className={styles.gifContainer}>
         {isLoading && <Loader />}
-        {!isLoading && item.images && <img src={item.images.medium} alt="Gif" />}
+        {!isLoading && item.images && (
+          <img
+            src={
+              item.images.large ||
+              "https://media1.giphy.com/media/3ohc1d8d9tCaBQdUe4/giphy.gif?cid=19ba58a9715615595fdcef3fada711e446f60fed90fb2420&rid=giphy.gif&ct=g"
+            }
+            alt="Gif"
+          />
+        )}
       </section>
     </main>
   );

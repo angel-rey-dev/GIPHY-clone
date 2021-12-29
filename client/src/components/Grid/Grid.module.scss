@@ -5,13 +5,16 @@
     // border: 1px solid red;
     columns: 5 30rem;
     column-gap: 1px;
-    text-align: center;    
+    text-align: center;
+    transition: all .5s;
 }
 
 .gridItem {
+    transition: all .5s;
+
     div {
         border: 2px solid $bg-color;
-
+        transition: all .5s;
     }
 
     &Image {
