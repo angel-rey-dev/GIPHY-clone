@@ -1,25 +1,25 @@
 import styles from "./Search.module.scss";
-import { Params, useLocation, useParams } from "react-router-dom";
+import { Params, useParams } from "react-router-dom";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { resetState, search } from "../../redux/actions/search";
 import MainTitle from "../../components/MainTitle/MainTitle";
 import Grid from "../../components/Grid/Grid";
 import SearchSuggestions from "../../components/SearchSuggestions/SearchSuggestions";
 
-interface ISearchParams {
+export interface ISearchParams {
   limit: number;
   offset: number;
-  type: string;
+  type: "gifs" | "stickers";
   term: string;
 }
 
 export default function Search() {
   const { term }: Params = useParams();
-  // const { state } = useLocation();
+
   const searchResults = useSelector((state: RootStateOrAny) => state.search);
   const dispatch = useDispatch();
-  
+
   const [searchParams, setSearchParams] = useState<ISearchParams>({
     term: term as string,
     type: "gifs",
@@ -49,7 +49,7 @@ export default function Search() {
   return (
     <main className={styles.container}>
       <MainTitle title={term as string} />
-      <SearchSuggestions />
+      <SearchSuggestions term={term as string} />
       <Grid
         items={searchResults.results}
         pagination={searchResults.pagination}

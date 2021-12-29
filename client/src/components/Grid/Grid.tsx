@@ -13,7 +13,7 @@ type GridProps = {
   items: Array<any>;
   searchParams: {
     term: string;
-    type: string;
+    type?: "gifs" | "stickers";
     limit: number;
     offset: number;
   };
@@ -45,22 +45,29 @@ export default function Grid({
     >
       <section className={`${styles.container} ${styles.grid}`}>
         {items &&
-          items.map((item) => (
-            <Link key={item.id} to="/" className={styles.gridItem}>
-              <div>
-                <img
-                  src={item.images.medium}
-                  alt={item.title}
-                  onLoad={() => setIsLoaded(true)}
-                  className={
-                    isLoaded
-                      ? `${styles.gridItemImage} ${styles.gridItemImageLoaded}`
-                      : styles.gridItemImage
-                  }
-                />
-              </div>
-            </Link>
-          ))}
+          items.map((item) => {
+            return (
+              <Link
+                key={item.id}
+                to={`/gifs/${encodeURI(item.id)}`}
+                state={{ ...item, term }}
+                className={styles.gridItem}
+              >
+                <div>
+                  <img
+                    src={item.images.medium}
+                    alt={item.title}
+                    onLoad={() => setIsLoaded(true)}
+                    className={
+                      isLoaded
+                        ? `${styles.gridItemImage} ${styles.gridItemImageLoaded}`
+                        : styles.gridItemImage
+                    }
+                  />
+                </div>
+              </Link>
+            );
+          })}
       </section>
     </InfiniteScroll>
   );

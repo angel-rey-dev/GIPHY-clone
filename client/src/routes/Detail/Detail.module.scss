@@ -1,0 +1,15 @@
+@use "../../scss/abstracts/mixins"as *;
+@use "../../scss/layout/container"as *;
+
+.container {
+    text-align: center
+}
+
+.related {
+
+    h2 {
+        padding: 1rem 0 1rem 3rem;
+        text-align: left;
+        width: 100%;
+    }
+}
