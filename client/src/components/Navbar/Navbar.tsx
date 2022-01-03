@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.scss";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import { useState } from "react";

@@ -65,6 +65,9 @@
                 background-color: rgb(18, 18, 18);
                 opacity: 1;
                 inset: 0px -1px 4px;
+                -webkit-inset: 0px -1px 4px;
+                -moz-inset: 0px -1px 4px;
+                -o-inset: 0px -1px 4px;
                 -ms-inset: 0px -1px 4px;
                 z-index: 1;
                 transition: opacity 0.35s ease 0s;
