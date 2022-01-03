@@ -1,4 +1,4 @@
-import styles from "./Navbar.module.scss";
+import styles from "./navbar.module.scss";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
