@@ -38,7 +38,7 @@ export default function Grid({
           ...searchParams,
           offset: searchParams.offset + searchParams.limit,
         });
-        console.log("Act: ", searchParams);
+        // console.log("Act: ", searchParams);
       }}
       hasMore={pagination.offset + pagination.count < pagination.total_count}
       loader={<Loader />}

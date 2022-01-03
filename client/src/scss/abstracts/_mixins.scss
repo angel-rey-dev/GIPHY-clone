@@ -1,7 +1,3 @@
-@mixin bdr($c:cyan) {
-    border: 1px solid $c;
-}
-
 @mixin flexbox($d: column nowrap, $j: center, $a: center) {
     display: flex;
     flex-flow: $d;
