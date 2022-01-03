@@ -1,8 +1,27 @@
 @use "../../scss/abstracts"as *;
 
 .container {
-    @include bdr;
     margin: 2rem auto;
     max-width: 1024px;
     width: 100%;
+}
+
+.header {
+    @include flexbox($d:row nowrap, $j:space-between);
+    margin-bottom: 1rem;
+
+    h2 {
+        @include flexbox($d:row nowrap, $j:space-between);
+        gap: 1rem;
+    }
+
+    svg {
+        display: inline-block;
+        fill: $primary-yellow;
+    }
+
+    a {
+        color: $lightgray;
+        font-weight: $bold-font-weight;
+    }
 }
