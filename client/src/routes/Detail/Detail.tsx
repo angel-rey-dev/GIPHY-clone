@@ -24,7 +24,6 @@ type Gif = {
 export default function Detail() {
   const { state } = useLocation();
   const { id, title, type, images } = state as Gif;
-  console.log("state", state);
 
   const searchResults = useSelector((state: RootStateOrAny) => state.search);
   const dispatch = useDispatch();

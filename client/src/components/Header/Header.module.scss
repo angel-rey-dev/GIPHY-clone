@@ -3,8 +3,11 @@
 .container {
     background-color: $bg-color;
     position: sticky;
+    position: -webkit-sticky;
+    position: -ms-sticky;
     top: 0;
     width: 100%;
+    z-index: 100;
 
     @include for-large-screens {
         position: static;

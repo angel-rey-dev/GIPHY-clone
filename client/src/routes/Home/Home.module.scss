@@ -5,3 +5,20 @@
     overflow: hidden;
     width: 100%;
 }
+
+.related{
+    margin: 3rem auto;
+
+    h2 {
+        @include flexbox($d:row nowrap, $j:space-between);
+        color: $white;
+        gap: 1rem;
+        width: 10rem;
+    }
+
+    svg {
+        display: inline-block;
+        fill: $primary-yellow;
+    }
+
+}
