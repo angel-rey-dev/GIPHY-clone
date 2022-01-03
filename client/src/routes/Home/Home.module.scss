@@ -5,19 +5,3 @@
     overflow: hidden;
     width: 100%;
 }
-
-
-.section {
-    @include bdr;
-    margin: 2rem auto;
-    max-width: 1024px;
-    width: 100%;
-}
-
-.row {
-    @include bdr($c:magenta);
-    display: flex;
-    gap: 1rem;
-    overflow: auto;
-    width: 100%;
-}
