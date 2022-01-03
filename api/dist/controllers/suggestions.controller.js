@@ -15,7 +15,7 @@ suggestions.get("/:term", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, v
         });
         const data = yield response.data;
         const suggestionsData = data.data.map((suggestion) => suggestion.name);
-        return res.status(200).json({ related: suggestionsData });
+        return res.status(200).json({ suggestions: suggestionsData });
     }
     catch (error) {
         return res.status(500).json(error);

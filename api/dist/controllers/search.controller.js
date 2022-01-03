@@ -35,6 +35,7 @@ search.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, fun
             results,
             pagination: data.pagination,
         };
+        console.log(responseData);
         return res.status(200).json(responseData);
     }
     catch (error) {
