@@ -5,7 +5,8 @@
   "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -w",
+    "build": "node dist/server.js",
+    "dev": "tsc -w",
     "start": "nodemon -L"
   },
   "author": "Jose Angel Rey",
