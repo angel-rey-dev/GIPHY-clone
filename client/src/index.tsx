@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 // Axios for API calls
 import axios from "axios";
 // axios.defaults.baseURL = "http://localhost:4000/api";
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:4000";
+axios.defaults.baseURL = "https://gipho-api.herokuapp.com/" ||  process.env.REACT_APP_API;
 
 ReactDOM.render(
   <React.StrictMode>
