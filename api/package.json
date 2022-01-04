@@ -2,12 +2,11 @@
   "name": "gifo-api",
   "version": "1.0.0",
   "description": "rest api for gifo app",
-  "main": "dist/server.js",
+  "main": "dist/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node dist/server.js",
-    "dev": "tsc -w",
-    "start": "nodemon -L"
+    "build": "tsc -b",
+    "start": "node dist/app.js",
+    "dev": "nodemon -L"
   },
   "author": "Jose Angel Rey",
   "license": "ISC",
