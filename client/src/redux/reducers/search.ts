@@ -34,7 +34,7 @@ export default function searchReducer(state = initialState, action: IAction) {
     case SEARCH_SUGGESTIONS:
       return {
         ...state,
-        suggestions: payload.related,
+        suggestions: payload.suggestions,
       };
     case RESET_STATE:
       return initialState;
