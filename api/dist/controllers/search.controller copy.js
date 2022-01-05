@@ -28,7 +28,6 @@ search.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, fun
         return res.status(200).json(responseData);
     }
     catch (error) {
-        console.log(error);
         return res.status(500).json(error);
     }
 }));

@@ -7,7 +7,7 @@ const detail = Router();
 detail.get("/:id", async (req: Request, res: Response): Promise<Response> => {
   const { id } = req.params;
   const url = `https://api.giphy.com/v1/gifs/${id}`;
-  console.log(url);
+
   try {
     const response = await axios.get(url, {
       params: {

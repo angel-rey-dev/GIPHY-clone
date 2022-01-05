@@ -8,7 +8,6 @@ trendingRouter.get(
   "/",
   async (req: Request, res: Response): Promise<Response> => {
     const { limit, type, offset } = req.query;
-    console.log(req.query);
     const url = `https://api.giphy.com/v1/${type}/trending`;
 
     try {

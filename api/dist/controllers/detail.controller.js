@@ -7,7 +7,7 @@ const detail = (0, express_1.Router)();
 detail.get("/:id", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const url = `https://api.giphy.com/v1/gifs/${id}`;
-    console.log(url);
+    // console.log(url);
     try {
         const response = yield axios_1.default.get(url, {
             params: {

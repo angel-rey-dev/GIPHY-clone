@@ -39,10 +39,8 @@ search.get("/", async (req: Request, res: Response): Promise<Response> => {
       results,
       pagination: data.pagination,
     };
-console.log(responseData);
     return res.status(200).json(responseData);
   } catch (error: unknown) {
-    console.log(error);
     return res.status(500).json(error);
   }
 });

@@ -6,7 +6,7 @@ const axios_1 = (0, tslib_1.__importDefault)(require("axios"));
 const trendingRouter = (0, express_1.Router)();
 trendingRouter.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, function* () {
     const { limit, type, offset } = req.query;
-    console.log(req.query);
+
     const url = `https://api.giphy.com/v1/${type}/trending`;
     try {
         const response = yield axios_1.default.get(url, {
