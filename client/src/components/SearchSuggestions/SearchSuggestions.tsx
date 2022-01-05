@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-// import { Params, useNavigate, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { resetState, searchSuggestions } from "../../redux/actions/search";
+import { searchSuggestions } from "../../redux/actions/search";
 import styles from "./SearchSuggestions.module.scss";
 
-export default function SearchSuggestions({term}: {term: string}) {
+export default function SearchSuggestions({ term }: { term: string }) {
   const navigate = useNavigate();
-  // const { term }: Params = useParams();
 
   const { suggestions }: { suggestions: string[] } = useSelector(
     (state: RootStateOrAny) => state.search
@@ -15,7 +13,6 @@ export default function SearchSuggestions({term}: {term: string}) {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(resetState());
     dispatch(searchSuggestions({ term: term as string }));
   }, [dispatch, term]);
 
