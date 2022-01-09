@@ -1,7 +1,8 @@
 @use "../../scss/abstracts"as *;
 
 .container {
-    margin: 2rem auto;
+    margin: 5rem auto 6rem;
+    min-height: 20rem;
     max-width: 1024px;
     width: 100%;
 }
