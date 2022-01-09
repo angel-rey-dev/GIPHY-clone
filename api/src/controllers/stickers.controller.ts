@@ -18,12 +18,10 @@ stickers.get(
         return {
           id: gif.id,
           title: gif.title,
-          rating: gif.rating,
           images: {
-            large: gif.images.downsized_large.url,
-            medium: gif.images.fixed_height.url,
+            large: gif.images.fixed_height.webp,
+            medium: gif.images.preview_webp.url,
           },
-          user: { ...gif.user },
         };
       });
 

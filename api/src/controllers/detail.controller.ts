@@ -17,18 +17,16 @@ detail.get("/:id", async (req: Request, res: Response): Promise<Response> => {
 
     const { data } = await response.data;
 
-    const { id, title, type, rating, images, user } = data;
+    const { id, title, type, images } = data;
 
     const info = {
       type,
       id,
       title,
-      rating,
       images: {
-        large: images.downsized_large.url,
-        medium: images.fixed_height.url,
+        large: images.fixed_height.webp,
+        medium: images.preview_webp.url,
       },
-      user: { ...user },
     };
 
     return res.status(200).json(info);

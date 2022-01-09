@@ -14,10 +14,7 @@ categories.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0,
             return {
                 id: name_encoded,
                 name,
-                gif: {
-                    large: gif.images.downsized_large.url,
-                    medium: gif.images.fixed_width.url,
-                },
+                gif: gif.images.preview_webp.url,
             };
         });
         return res.status(200).json(categoriesData);

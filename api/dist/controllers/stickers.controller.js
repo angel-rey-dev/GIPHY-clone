@@ -13,12 +13,10 @@ stickers.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, f
             return {
                 id: gif.id,
                 title: gif.title,
-                rating: gif.rating,
                 images: {
-                    large: gif.images.downsized_large.url,
-                    medium: gif.images.fixed_height.url,
+                    large: gif.images.fixed_height.webp,
+                    medium: gif.images.preview_webp.url,
                 },
-                user: Object.assign({}, gif.user),
             };
         });
         const responseData = {

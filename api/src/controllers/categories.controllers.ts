@@ -17,10 +17,7 @@ categories.get("/", async (req: Request, res: Response): Promise<Response> => {
       return {
         id: name_encoded,
         name,
-        gif: {
-          large: gif.images.downsized_large.url,
-          medium: gif.images.fixed_width.url,
-        },
+        gif: gif.images.preview_webp.url,
       };
     });
 

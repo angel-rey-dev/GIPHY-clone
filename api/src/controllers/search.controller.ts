@@ -12,8 +12,8 @@ search.get("/", async (req: Request, res: Response): Promise<Response> => {
     const response = await axios.get(url, {
       params: {
         api_key: process.env.API_KEY,
-        q: q || "holidays",
-        limit: limit || 20,
+        q: q || "funny",
+        limit: limit || 10,
         offset: offset || 0,
       },
     });
@@ -21,17 +21,16 @@ search.get("/", async (req: Request, res: Response): Promise<Response> => {
     const data = await response.data;
 
     const results = data.data.map((gif: any) => {
-      const { id, title, type, rating, images, user } = gif;
+      const { id, title, type, images } = gif;
       return {
         type,
         id,
         title,
-        rating,
         images: {
-          large: images.downsized_large.url,
-          medium: images.fixed_width.url,
+          large: images.downsized.url,
+          // large: images.fixed_height.webp,
+          medium: images.preview_webp.url,
         },
-        user: { ...user },
       };
     });
 

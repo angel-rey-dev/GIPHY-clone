@@ -6,7 +6,6 @@ const axios_1 = (0, tslib_1.__importDefault)(require("axios"));
 const trendingRouter = (0, express_1.Router)();
 trendingRouter.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, function* () {
     const { limit, type, offset } = req.query;
-
     const url = `https://api.giphy.com/v1/${type}/trending`;
     try {
         const response = yield axios_1.default.get(url, {
@@ -18,17 +17,16 @@ trendingRouter.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, voi
         });
         const data = yield response.data;
         const info = data.data.map((gif) => {
-            const { id, title, type, rating, images, user } = gif;
+            const { id, title, type, images } = gif;
             return {
                 type,
                 id,
                 title,
-                rating,
                 images: {
-                    large: images.downsized_large.url,
-                    medium: images.fixed_height.url,
+                    // large: images.downsized_small.url,
+                    large: images.fixed_height.webp,
+                    medium: images.preview_webp.url,
                 },
-                user: Object.assign({}, user),
             };
         });
         const responseData = {
@@ -36,7 +34,6 @@ trendingRouter.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, voi
             pagination: data.pagination,
         };
         return res.status(200).json(responseData);
-        //   return res.status(200).json(data);
     }
     catch (error) {
         return res.status(500).json(error);

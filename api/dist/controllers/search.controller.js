@@ -11,31 +11,29 @@ search.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, fun
         const response = yield axios_1.default.get(url, {
             params: {
                 api_key: process.env.API_KEY,
-                q: q || "holidays",
-                limit: limit || 20,
+                q: q || "funny",
+                limit: limit || 10,
                 offset: offset || 0,
             },
         });
         const data = yield response.data;
         const results = data.data.map((gif) => {
-            const { id, title, type, rating, images, user } = gif;
+            const { id, title, type, images } = gif;
             return {
                 type,
                 id,
                 title,
-                rating,
                 images: {
-                    large: images.downsized_large.url,
-                    medium: images.fixed_width.url,
+                    large: images.downsized.url,
+                    // large: images.fixed_height.webp,
+                    medium: images.preview_webp.url,
                 },
-                user: Object.assign({}, user),
             };
         });
         const responseData = {
             results,
             pagination: data.pagination,
         };
-        // console.log(responseData);
         return res.status(200).json(responseData);
     }
     catch (error) {

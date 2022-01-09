@@ -15,17 +15,15 @@ random.get("/", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, void 0, fun
             },
         });
         const { data } = yield response.data;
-        const { id, title, type, rating, images, user } = data;
+        const { id, title, type, images } = data;
         const info = {
             type,
             id,
             title,
-            rating,
             images: {
-                large: images.downsized_large.url,
-                medium: images.fixed_height.url,
+                large: images.fixed_height.webp,
+                medium: images.preview_webp.url,
             },
-            user: Object.assign({}, user),
         };
         return res.status(200).json(info);
     }

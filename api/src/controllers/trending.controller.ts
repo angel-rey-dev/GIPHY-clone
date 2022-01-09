@@ -22,17 +22,16 @@ trendingRouter.get(
       const data = await response.data;
 
       const info = data.data.map((gif: any) => {
-        const { id, title, type, rating, images, user } = gif;
+        const { id, title, type, images } = gif;
         return {
           type,
           id,
           title,
-          rating,
           images: {
-            large: images.downsized_large.url,
-            medium: images.fixed_height.url,
+            // large: images.downsized_small.url,
+            large: images.fixed_height.webp,
+            medium: images.preview_webp.url,
           },
-          user: { ...user },
         };
       });
 
@@ -42,7 +41,6 @@ trendingRouter.get(
       };
 
       return res.status(200).json(responseData);
-    //   return res.status(200).json(data);
     } catch (error) {
       return res.status(500).json(error);
     }
