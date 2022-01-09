@@ -7,12 +7,15 @@ const server = express();
 const port = process.env.PORT || 4000;
 
 // Middlewares
-server.use(cors());
+server.use(
+  cors({
+    origin: "https://gipho.vercel.app/",
+  })
+);
 server.use(express.json());
 server.use(morgan("dev"));
 server.use("/", routes);
 
-server.listen(port, () => console.log("Server is running on port 4000"));
-
+server.listen(port, () => console.log(`Server is running on port ${port}`));
 
 export default server;
