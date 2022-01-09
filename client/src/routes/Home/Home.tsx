@@ -1,71 +1,82 @@
+import React, { Suspense } from "react";
 import styles from "./Home.module.scss";
 import { useEffect, useState } from "react";
+
+// Redux
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import {
   getTrendingGifs,
   getTrendingStickers,
 } from "../../redux/actions/trending";
-import { BiHappy } from "react-icons/bi";
+import { resetState, search } from "../../redux/actions/search";
+
 // Components
 import Banner from "../../components/Banner/Banner";
 import Loader from "../../components/Loader/Loader";
-import Preview from "../../components/Preview/Preview";
-import Grid from "../../components/Grid/Grid";
+
 import { ISearchParams } from "../Search/Search";
-import { search } from "../../redux/actions/search";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [searchParams, setSearchParams] = useState<ISearchParams>({
-    term: "funny",
-    type: "gifs",
-    limit: 10,
-    offset: 0,
-  });
+  const Preview = React.lazy(() => import("../../components/Preview/Preview"));
 
   const dispatch = useDispatch();
   const trending = useSelector((state: RootStateOrAny) => state.trending);
   const searchResults = useSelector((state: RootStateOrAny) => state.search);
 
+  const [searchParams] = useState<ISearchParams>({
+    term: "funny",
+    type: "gifs",
+    limit: 8,
+    offset: 0,
+  });
+
   useEffect(() => {
-    dispatch(getTrendingGifs(20));
-    dispatch(getTrendingStickers(20));
+    dispatch(getTrendingGifs(8));
+    dispatch(getTrendingStickers(8));
     dispatch(search({ ...searchParams }));
-    setIsLoading(false);
+  
+    return () => {
+      dispatch(resetState());
+    };
   }, [dispatch, searchParams]);
+
+  const funnyGifs = { gifs: searchResults.results };
 
   return (
     <main className={styles.container}>
-      <Banner />
-      {isLoading && <Loader />}
+      <section className={styles.mainContent}>
+        <Banner />
 
-      <Preview
-        trending={trending}
-        icon="trending"
-        title="Trending"
-        type="gifs"
-        link="/search/trending"
-      />
-      <Preview
-        trending={trending}
-        icon="stickers"
-        title="Stickers"
-        type="stickers"
-        link="/search/stickers"
-      />
+        <Suspense fallback={<Loader />}>
+          <Preview
+            trending={trending}
+            icon="trending"
+            title="Trending"
+            type="gifs"
+            link="/search/trending"
+          />
+        </Suspense>
 
-      <section className={styles.related}>
-        <h2>
-          <BiHappy />
-         <span>Funny</span>
-        </h2>
-        <Grid
-          items={searchResults.results}
-          pagination={searchResults.pagination}
-          setSearchParams={setSearchParams}
-          searchParams={searchParams}
-          term={"funny"}
-        />
+        <Suspense fallback={<Loader />}>
+          <Preview
+            trending={trending}
+            icon="stickers"
+            title="Stickers"
+            type="stickers"
+            link="/search/stickers"
+          />
+        </Suspense>
+
+        <Suspense fallback={<Loader />}>
+          <Preview
+            trending={funnyGifs}
+            icon="funny"
+            title="Funny"
+            type="gifs"
+            link="/search/funny"
+          />
+        </Suspense>
+
       </section>
     </main>
   );
