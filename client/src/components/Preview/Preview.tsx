@@ -1,6 +1,8 @@
+import React from "react";
 import styles from "./Preview.module.scss";
 // Icons
 import { HiTrendingUp } from "react-icons/hi";
+import { BiHappy } from "react-icons/bi";
 import { MdOutlineStickyNote2 } from "react-icons/md";
 import Slider from "../Slider/Slider";
 import { Link } from "react-router-dom";
@@ -13,18 +15,13 @@ type PreviewProps = {
   link: string;
 };
 
-export default function Preview({
-  trending,
-  icon,
-  title,
-  type,
-  link,
-}: PreviewProps) {
-  const icons: any = {
-    trending: <HiTrendingUp />,
-    stickers: <MdOutlineStickyNote2 />,
-  };
+const icons: any = {
+  trending: <HiTrendingUp />,
+  stickers: <MdOutlineStickyNote2 />,
+  funny: <BiHappy />,
+};
 
+function Preview({ trending, icon, title, type, link }: PreviewProps) {
   return (
     <section className={styles.container}>
       <header className={styles.header}>
@@ -38,3 +35,9 @@ export default function Preview({
     </section>
   );
 }
+
+export default React.memo(
+  Preview,
+  (prevProps: PreviewProps, nextProps: PreviewProps) =>
+    prevProps.trending === nextProps.trending
+);
