@@ -5,10 +5,7 @@ import styles from "./CategoryCard.module.scss";
 type CategoryCardProps = {
   id: string;
   name: string;
-  gif: {
-    large: string;
-    medium: string;
-  };
+  gif: string;
 };
 
 export default function CategoryCard({ id, name, gif }: CategoryCardProps) {
@@ -18,7 +15,7 @@ export default function CategoryCard({ id, name, gif }: CategoryCardProps) {
     <Link to={`/search/${encodeURI(name)}`} className={styles.link}>
       <div className={styles.container}>
         <img
-          src={gif.medium}
+          src={gif}
           alt={name}
           onLoad={() => setIsLoaded(true)}
           className={
