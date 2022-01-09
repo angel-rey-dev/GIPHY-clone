@@ -7,11 +7,7 @@ const server = express();
 const port = process.env.PORT || 4000;
 
 // Middlewares
-server.use(
-  cors({
-    origin: "https://gipho.vercel.app/",
-  })
-);
+server.use(cors());
 server.use(express.json());
 server.use(morgan("dev"));
 server.use("/", routes);
