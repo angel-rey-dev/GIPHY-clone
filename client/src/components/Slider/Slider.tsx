@@ -1,17 +1,14 @@
+import { Link } from "react-router-dom";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./styles.css";
-
 // import Swiper core and required modules
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -21,8 +18,6 @@ type SliderProps = {
 };
 
 export default function Slider({ elements, type }: SliderProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   return (
     <Swiper
       // centeredSlides={true}
@@ -47,12 +42,11 @@ export default function Slider({ elements, type }: SliderProps) {
         <SwiperSlide key={el.id}>
           <Link to={`/gifs/${encodeURI(el.id)}`} state={{ ...el }}>
             <img
-              className={isLoaded ? "loaded" : ""}
+              loading="lazy"
+              className="loaded"
               key={el.id}
-              onLoad={() => setIsLoaded(true)}
               src={el.images.medium}
               alt={el.title}
-              // className={styles.gif}
             />
           </Link>
         </SwiperSlide>
