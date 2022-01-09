@@ -7,7 +7,7 @@
 }
 
 .related{
-    margin: 3rem auto;
+    margin: 1rem auto;
 
     h2 {
         @include flexbox($d:row nowrap, $j:space-between);
@@ -21,4 +21,8 @@
         fill: $primary-yellow;
     }
 
+}
+.mainContent{
+    width: 100%;
+    min-height: 100vh;
 }
