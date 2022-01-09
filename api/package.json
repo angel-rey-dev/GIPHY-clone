@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -b",
     "start": "node dist/app.js",
-    "dev": "nodemon -L"
+    "dev": "nodemon -L",
+    "watch": "tsc -w"
   },
   "author": "Jose Angel Rey",
   "license": "ISC",
