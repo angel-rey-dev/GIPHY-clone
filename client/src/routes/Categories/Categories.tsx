@@ -8,10 +8,7 @@ import MainTitle from "../../components/MainTitle/MainTitle";
 interface ICategory {
   id: string;
   name: string;
-  gif: {
-    large: string;
-    medium: string;
-  };
+  gif: string;
 }
 
 export default function Categories() {
@@ -30,7 +27,12 @@ export default function Categories() {
       <section className={styles.grid}>
         {categories &&
           categories.map((category: ICategory) => (
-            <CategoryCard {...category} key={category.id} />
+            <CategoryCard
+              key={category.id}
+              id={category.id}
+              name={category.name}
+              gif={category.gif}
+            />
           ))}
       </section>
     </main>
