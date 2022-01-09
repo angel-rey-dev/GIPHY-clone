@@ -45,7 +45,7 @@ export default function Slider({ elements, type }: SliderProps) {
               loading="lazy"
               className="loaded"
               key={el.id}
-              src={el.images.medium}
+              src={el.images.large}
               alt={el.title}
             />
           </Link>
