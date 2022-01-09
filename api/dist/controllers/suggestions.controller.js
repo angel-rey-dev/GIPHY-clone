@@ -18,6 +18,7 @@ suggestions.get("/:term", (req, res) => (0, tslib_1.__awaiter)(void 0, void 0, v
         return res.status(200).json({ suggestions: suggestionsData });
     }
     catch (error) {
+        console.log("error", error);
         return res.status(500).json(error);
     }
 }));

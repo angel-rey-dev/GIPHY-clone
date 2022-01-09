@@ -21,7 +21,6 @@ suggestions.get(
       const suggestionsData = data.data.map(
         (suggestion: any) => suggestion.name
       );
-      console.log("suggestionsData", suggestionsData);
       return res.status(200).json({ suggestions: suggestionsData });
     } catch (error: unknown) {
       console.log("error", error);
